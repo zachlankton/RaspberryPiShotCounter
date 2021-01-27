@@ -1,0 +1,17 @@
+# Save this file in /var/systemd/system/shotcounter.service
+
+[Unit]
+Description=Lazarus Shot Counter
+After=multi-user.target
+Conflicts=getty@tty1.service
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+ExecStart=/usr/bin/python /root/shot_counter/shot_counter.py
+StandardInput=tty-force
+
+[Install]
+WantedBy=multi-user.target
+
